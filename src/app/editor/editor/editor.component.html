@@ -23,7 +23,7 @@
                  dnd-sortable
                  [sortableIndex]="i">
               <app-editor-box [content]="item"
-                              (contentChange)="updateModel(i, newContent)"
+                              (contentChange)="updateModel($event, i)"
                               (remove)="removeBox(i)"
                               (insertAfter)="insertBoxAfter(i)"
               ></app-editor-box>

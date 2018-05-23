@@ -1,5 +1,7 @@
 import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import {fromEvent} from 'rxjs/internal/observable/fromEvent';
+
+
+const DEFAULT_TEXT = "";
 
 @Component({
   selector: 'app-editor',
@@ -19,20 +21,16 @@ export class EditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  onKeyUp($event) {
-    console.log();
+  updateModel(newContent, index) {
+    console.info(newContent, index);
+    this.boxList[index]=newContent;
   }
 
-  updateModel(i, newContent) {
-
+  removeBox(index) {
+    this.boxList.splice(index,1);
   }
 
-  removeBox(i) {
-
-  }
-
-  insertBoxAfter(i) {
-
+  insertBoxAfter(index) {
+    this.boxList.splice(index+1, 0, DEFAULT_TEXT);
   }
 }
