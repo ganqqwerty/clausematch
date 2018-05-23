@@ -1,3 +1,15 @@
-<p>
-  editor-box works!
-</p>
+<div class="item-content"
+     #editableContent
+     contenteditable="true"
+>
+  {{content}}
+</div>
+<div class="item-add-btn btn btn-success"
+     (click)="insertBoxAfterCurrent()"
+>
+  +
+</div>
+<div class="item-remove-btn btn btn-danger"
+     (click)="removeBox()">
+  &ndash;
+</div>

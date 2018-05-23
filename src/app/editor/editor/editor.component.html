@@ -1,4 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div class="item-content"
+     #itemcontent
+     contenteditable="true"
+>
+  {{tmp}}
+</div>
+
+<pre>{{tmp|json}}</pre>
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
@@ -14,22 +22,11 @@
                  class="list-group-item"
                  dnd-sortable
                  [sortableIndex]="i">
-              <div class="item-content"
-                   #itemcontent
-                   contenteditable="true"
-                   (keyup)="onKeyUp($event)"
-              >
-                {{item}}
-              </div>
-              <div class="item-add-btn btn btn-success"
-                   (click)="addBox()"
-              >
-                +
-              </div>
-              <div class="item-remove-btn btn btn-danger"
-                   (click)="removeBox(i)">
-                &ndash;
-              </div>
+              <app-editor-box [content]="item"
+                              (contentChange)="updateModel(i, newContent)"
+                              (remove)="removeBox(i)"
+                              (insertAfter)="insertBoxAfter(i)"
+              ></app-editor-box>
             </div>
           </div>
         </div>

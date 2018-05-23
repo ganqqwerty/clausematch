@@ -6,23 +6,33 @@ import {fromEvent} from 'rxjs/internal/observable/fromEvent';
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css']
 })
-export class EditorComponent implements OnInit, AfterViewInit {
+export class EditorComponent implements OnInit {
 
   @Input()
   boxList = [];
+  tmp = "dsfdf";
 
-  @ViewChild('itemcontent') editableContent: ElementRef;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-  ngAfterViewInit():void {
-    fromEvent(this.editableContent.nativeElement, 'input').subscribe(x=>console.log);
-  }
+
 
   onKeyUp($event) {
     console.log();
   }
 
+  updateModel(i, newContent) {
+
+  }
+
+  removeBox(i) {
+
+  }
+
+  insertBoxAfter(i) {
+
+  }
 }
