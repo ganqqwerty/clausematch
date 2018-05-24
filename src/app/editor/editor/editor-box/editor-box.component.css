@@ -1,0 +1,36 @@
+.editor-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  border: 1px solid whitesmoke;
+  margin-bottom: 5px;
+  background-color: white;
+}
+
+.editor-box__content {
+  width: 80%;
+  padding: 10px 10px;
+  margin-bottom: 5px;
+}
+
+.btn {
+  width: 50%;
+  height: 100%;
+  margin: 0 0;
+  float: right;
+  border: none;
+  color: whitesmoke;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.btn-success {
+  background-color: darkkhaki;
+}
+
+.btn-danger {
+  background-color: rgb(180,97,74);
+}
+
