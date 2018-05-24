@@ -4,6 +4,7 @@
        contenteditable="true"
        (keydown.control.i)="formatItalic($event)"
        (keydown.control.b)="formatBold($event)"
+       (blur)="leaveEditBox()"
        [innerHTML]="content"
   >
   </div>

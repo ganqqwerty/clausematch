@@ -26,6 +26,13 @@ export class EditorBoxComponent implements OnInit, AfterViewInit, OnDestroy {
   insertAfter: EventEmitter<any> = new EventEmitter();
 
   /**
+   * indicates that the user left focus from the input box
+   * @type {EventEmitter<any>}
+   */
+  @Output()
+  leave: EventEmitter<any> = new EventEmitter();
+
+  /**
    * indicates that the user wants to delete the current text box
    * @type {EventEmitter<any>}
    */
@@ -56,7 +63,6 @@ export class EditorBoxComponent implements OnInit, AfterViewInit, OnDestroy {
         // using target.innerHTML is actually not normative, that's why we use `any` type
         const newValue = event.target.innerHTML;
         this.contentChange.emit(newValue);
-        console.log(event);
       });
   }
 
@@ -72,13 +78,15 @@ export class EditorBoxComponent implements OnInit, AfterViewInit, OnDestroy {
     this.remove.emit(null);
   }
 
+  leaveEditBox() {
+    this.leave.emit(null);
+  }
+
   formatItalic(event) {
-    console.log(event);
     document.execCommand('italic', false);
   }
 
   formatBold(event) {
-    console.log(event);
     document.execCommand('bold', false);
   }
 

@@ -9,11 +9,13 @@
             <div *ngFor="let item of initialContents; let i = index"
                  class="list-group-item"
                  dnd-sortable
+                 (onDropSuccess)="onDropSuccess($event)"
                  [sortableIndex]="i">
               <app-editor-box [content]="item"
                               (contentChange)="updateOutput($event, i)"
                               (remove)="removeBox(i)"
                               (insertAfter)="insertBoxAfter(i)"
+                              (leave)="syncInitialToChanged()"
               ></app-editor-box>
             </div>
           </div>
@@ -29,3 +31,5 @@
     </div>
   </div>
 </div>
+
+<pre>{{initialContents|json}}</pre>

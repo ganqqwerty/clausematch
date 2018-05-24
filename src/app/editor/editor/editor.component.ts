@@ -41,13 +41,16 @@ export class EditorComponent implements OnInit {
     this.initialContents = this.changedContents.slice();
   }
 
-  private syncInitialToChanged() {
+   syncInitialToChanged() {
     this.initialContents = this.changedContents.slice();
   }
 
-  private syncChangedToInitial() {
+   syncChangedToInitial() {
     this.changedContents = this.initialContents.slice();
   }
 
+  onDropSuccess($event) {
+    this.syncChangedToInitial();
+  }
 
 }
