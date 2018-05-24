@@ -12,7 +12,6 @@ export class EditorStorageService {
   }
 
   getTexts(): Observable<Array<string>> {
-    return of(['Coffee', 'Orange Juice', 'Red Wine', 'Unhealty drink!', 'Water']);
-
+    return of(['Coffee', 'Orange <i>Juice</i>', 'Red <script>alert("hi")</script>>Wine', 'Unhealty drink!', 'Water']);
   }
 }

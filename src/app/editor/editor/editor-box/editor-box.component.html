@@ -1,8 +1,10 @@
 <div class="item-content"
      #editableContent
      contenteditable="true"
+     (keydown.control.i)="formatItalic($event)"
+     (keydown.control.b)="formatBold($event)"
+     [innerHTML]="content"
 >
-  {{content}}
 </div>
 <div class="item-add-btn btn btn-success"
      (click)="insertBoxAfterCurrent()"

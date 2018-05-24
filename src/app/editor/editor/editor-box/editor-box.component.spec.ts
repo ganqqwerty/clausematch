@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EditorBoxComponent } from './editor-box.component';
+import {EditorBoxComponent} from './editor-box.component';
 
 describe('EditorBoxComponent', () => {
   let component: EditorBoxComponent;
@@ -8,9 +8,9 @@ describe('EditorBoxComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditorBoxComponent ]
-    })
-    .compileComponents();
+        declarations: [EditorBoxComponent]
+      })
+      .compileComponents();
   }));
 
   beforeEach(() => {

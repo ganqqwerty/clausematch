@@ -9,21 +9,39 @@ import {Subscription} from 'rxjs/internal/Subscription';
 })
 export class EditorBoxComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  /**
+   * Initial content of the text box
+   */
   @Input()
   content: string;
 
   @ViewChild('editableContent')
-  editableContent: ElementRef;
+  private editableContent: ElementRef;
 
+  /**
+   * indicates that the user wants to insert the new text box after the current one
+   * @type {EventEmitter<any>}
+   */
   @Output()
   insertAfter: EventEmitter<any> = new EventEmitter();
 
+  /**
+   * indicates that the user wants to delete the current text box
+   * @type {EventEmitter<any>}
+   */
   @Output()
   remove: EventEmitter<any> = new EventEmitter();
 
+  /**
+   * emits an event whenever the content of the editable element changes
+   * @type {EventEmitter<any>}
+   */
   @Output()
   contentChange: EventEmitter<string> = new EventEmitter();
 
+  /**
+   * must be cleaned up in destroy phase
+   */
   private contentChangeSubscription: Subscription;
 
   constructor() {
@@ -34,10 +52,10 @@ export class EditorBoxComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.contentChangeSubscription = fromEvent(this.editableContent.nativeElement, 'input')
-      .subscribe(event => {
+      .subscribe((event) => {
         const newValue = event.target.innerHTML;
         this.contentChange.emit(newValue);
-        console.log(event.target.innerHTML);
+        console.log(event);
       });
   }
 
@@ -45,7 +63,7 @@ export class EditorBoxComponent implements OnInit, AfterViewInit, OnDestroy {
     this.contentChangeSubscription.unsubscribe();
   }
 
-  insertBoxAfterCurrent(){
+  insertBoxAfterCurrent() {
     this.insertAfter.emit(null);
   }
 
@@ -53,6 +71,14 @@ export class EditorBoxComponent implements OnInit, AfterViewInit, OnDestroy {
     this.remove.emit(null);
   }
 
+  formatItalic(event) {
+    console.log(event);
+    document.execCommand('italic', false);
+  }
 
+  formatBold(event) {
+    console.log(event);
+    document.execCommand('bold', false);
+  }
 
 }

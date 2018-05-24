@@ -1,5 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-
+import {Component, Input, OnInit} from '@angular/core';
 
 const DEFAULT_TEXT = "";
 
@@ -12,25 +11,26 @@ export class EditorComponent implements OnInit {
 
   @Input()
   boxList = [];
-  tmp = "dsfdf";
-
+  outputBoxList = [];
 
   constructor() {
   }
 
   ngOnInit(): void {
+    // initially our output is the same as input
+    this.outputBoxList = this.boxList.slice();
   }
 
-  updateModel(newContent, index) {
+  updateOutput(newContent, index) {
     console.info(newContent, index);
-    this.boxList[index]=newContent;
+    this.outputBoxList[index] = newContent;
   }
 
   removeBox(index) {
-    this.boxList.splice(index,1);
+    this.boxList.splice(index, 1);
   }
 
   insertBoxAfter(index) {
-    this.boxList.splice(index+1, 0, DEFAULT_TEXT);
+    this.boxList.splice(index + 1, 0, DEFAULT_TEXT);
   }
 }
