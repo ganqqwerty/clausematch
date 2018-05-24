@@ -52,7 +52,8 @@ export class EditorBoxComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.contentChangeSubscription = fromEvent(this.editableContent.nativeElement, 'input')
-      .subscribe((event) => {
+      .subscribe((event: any) => {
+        // using target.innerHTML is actually not normative, that's why we use `any` type
         const newValue = event.target.innerHTML;
         this.contentChange.emit(newValue);
         console.log(event);

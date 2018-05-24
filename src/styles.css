@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 40px auto;
+  line-height: 1.6;
+  font-size: 18px;
+  color: #444;
+  padding: 0 10px;
+  background-color: whitesmoke;
+}
+
+h1, h2, h3 {
+  line-height: 1.2
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: block;
+}
+
+.col {
+  margin: 0;
+}
+
+/**
+  Ipad
+ */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .col {
+    flex: 1;
+    margin: 0 20px;
+  }
+}
+
+/*
+  Desktop
+ */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1000px;
+  }
+}

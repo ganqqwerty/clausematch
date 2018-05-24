@@ -1,17 +1,22 @@
-<div class="editor-box__content"
-     #editableContent
-     contenteditable="true"
-     (keydown.control.i)="formatItalic($event)"
-     (keydown.control.b)="formatBold($event)"
-     [innerHTML]="content"
->
-</div>
-<div class="editor-box__add-btn btn btn-success"
-     (click)="insertBoxAfterCurrent()"
->
-  +
-</div>
-<div class="editor-box__remove-btn btn btn-danger"
-     (click)="removeBox()">
-  &ndash;
+<div class="editor-box">
+  <div class="editor-box__content"
+       #editableContent
+       contenteditable="true"
+       (keydown.control.i)="formatItalic($event)"
+       (keydown.control.b)="formatBold($event)"
+       [innerHTML]="content"
+  >
+  </div>
+  <div class="btn-group">
+    <div class="editor-box__remove-btn btn btn-danger"
+         (click)="removeBox()">
+      &ndash;
+    </div>
+    <div class="editor-box__add-btn btn btn-success"
+         (click)="insertBoxAfterCurrent()"
+    >
+      +
+    </div>
+  </div>
+
 </div>
