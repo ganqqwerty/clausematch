@@ -8,13 +8,13 @@ import {EditorStorageService} from './editor-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  boxList$: Observable<any>;
+  initialContents$: Observable<any>;
 
   constructor(private storage: EditorStorageService) {
 
   }
 
   ngOnInit() {
-    this.boxList$ = this.storage.getTexts();
+    this.initialContents$ = this.storage.getTexts();
   }
 }

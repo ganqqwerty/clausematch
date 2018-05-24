@@ -2,14 +2,11 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="panel panel-success">
-        <div class="panel-heading">
-          Favorite drinks
-        </div>
         <div class="panel-body">
           <div class="list-group"
                dnd-sortable-container
-               [sortableData]="boxList">
-            <div *ngFor="let item of boxList; let i = index"
+               [sortableData]="initialContents">
+            <div *ngFor="let item of initialContents; let i = index"
                  class="list-group-item"
                  dnd-sortable
                  [sortableIndex]="i">
@@ -26,9 +23,7 @@
     <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-body">
-          My prefences:
-          <br />
-          <span *ngFor="let item of boxList; let i = index">{{i + 1}}) {{item}}<br /></span>
+          <app-debugger [content]="changedContents"></app-debugger>
         </div>
       </div>
     </div>

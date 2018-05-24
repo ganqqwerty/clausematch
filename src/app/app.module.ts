@@ -4,7 +4,7 @@ import {DndModule} from 'ng2-dnd';
 
 import { AppComponent } from './app.component';
 import { EditorComponent } from './editor/editor/editor.component';
-import { DebuggerComponent } from './editor/debugger/debugger.component';
+import { DebuggerComponent } from './editor/editor/debugger/debugger.component';
 import { EditorBoxComponent } from './editor/editor/editor-box/editor-box.component';
 
 @NgModule({

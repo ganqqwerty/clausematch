@@ -1,4 +1,4 @@
-<div class="item-content"
+<div class="editor-box__content"
      #editableContent
      contenteditable="true"
      (keydown.control.i)="formatItalic($event)"
@@ -6,12 +6,12 @@
      [innerHTML]="content"
 >
 </div>
-<div class="item-add-btn btn btn-success"
+<div class="editor-box__add-btn btn btn-success"
      (click)="insertBoxAfterCurrent()"
 >
   +
 </div>
-<div class="item-remove-btn btn btn-danger"
+<div class="editor-box__remove-btn btn btn-danger"
      (click)="removeBox()">
   &ndash;
 </div>

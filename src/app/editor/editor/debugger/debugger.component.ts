@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-debugger',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./debugger.component.css']
 })
 export class DebuggerComponent implements OnInit {
+
+  @Input()
+  content: any;
 
   constructor() { }
 
